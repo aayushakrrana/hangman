@@ -79,7 +79,6 @@ def hangman(secret_word):
                 letters_guessed.append(letter)
                 print("Good guess: {} ".format(
                     get_guessed_word(secret_word, letters_guessed)))
-                #is_word_guessed(secret_word, letters_guessed)
                 print("")
             elif letter=="hint":
                 if prev_hint==False:
@@ -93,7 +92,6 @@ def hangman(secret_word):
                 print("")
                 print("Oops! That letter is not in my word: {} ".format(
                 get_guessed_word(secret_word, letters_guessed)))
-                letters_guessed.append(letter)
                 print("")
                 is_word_guessed(secret_word, letters_guessed)
                 if(available_lives>7):
@@ -106,8 +104,5 @@ def hangman(secret_word):
             
   
 
-
-# Load the list of words into the variable wordlist
-# So that it can be accessed from anywhere in the program
 secret_word = choose_word()
 hangman(secret_word)

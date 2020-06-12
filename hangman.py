@@ -62,7 +62,7 @@ def hangman(secret_word):
         str(len(secret_word))), end='\n\n')
 
     letters_guessed = []
-    print(secret_word)
+    #print(secret_word)
     prev_hint=False
     available_lives=0
     while(is_word_guessed(secret_word, letters_guessed)==False):

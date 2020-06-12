@@ -11,9 +11,7 @@ def is_word_guessed(secret_word, letters_guessed):
     if(a==b):
         print(" * * Congratulations, you won! * * ", end='\n\n')
         sys.exit()
-        #return True 
-    #else:
-     #   return False
+        
 
 
 def get_guessed_word(secret_word, letters_guessed):

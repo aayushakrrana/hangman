@@ -11,7 +11,7 @@ def is_word_guessed(secret_word, letters_guessed):
     if(a==b):
         print(" * * Congratulations, you won! * * ", end='\n\n')
         sys.exit()
-        
+    return False
 
 
 def get_guessed_word(secret_word, letters_guessed):
@@ -65,7 +65,7 @@ def hangman(secret_word):
     print(secret_word)
     prev_hint=False
     available_lives=0
-    while(1):
+    while(is_word_guessed(secret_word, letters_guessed)==False):
         available_letters = get_available_letters(letters_guessed)
         print("Available letters: {}                 ".format(available_letters),end="")
         print("Remaining lives : ", end="" )
@@ -79,7 +79,7 @@ def hangman(secret_word):
                 letters_guessed.append(letter)
                 print("Good guess: {} ".format(
                     get_guessed_word(secret_word, letters_guessed)))
-                is_word_guessed(secret_word, letters_guessed)
+                #is_word_guessed(secret_word, letters_guessed)
                 print("")
             elif letter=="hint":
                 if prev_hint==False:

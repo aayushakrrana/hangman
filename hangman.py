@@ -57,10 +57,15 @@ def hint(secret_word,letters_guessed):
 
 def hangman(secret_word):
     print("")
-    print("Welcome to the game, Hangman!")
+    print("---------------------------------------------")
+    print("------  Welcome to the game, Hangman!  ------")
+    print("---------------------------------------------")
+    print("")
+    print("*Type 'hint' for a hint. Hint can be used only once.*")
+    print("")
     print("I am thinking of a word that is {} letters long.".format(
         str(len(secret_word))), end='\n\n')
-
+    print("")
     letters_guessed = []
     #print(secret_word)
     prev_hint=False
@@ -69,10 +74,15 @@ def hangman(secret_word):
         available_letters = get_available_letters(letters_guessed)
         print("Available letters: {}                 ".format(available_letters),end="")
         print("Remaining lives : ", end="" )
-        print(8-available_lives)
+        print(8-available_lives,end="")
+        if prev_hint==False:
+            print("            <<Hint available>>")
+        else:
+            print("            <<Hint not available>>")
         print("")
         guess = input("Please guess a letter: ")
         letter = guess.lower()
+        print("")
                     
         if ifValid(letter,available_letters,secret_word, letters_guessed,prev_hint)==True:
             if letter in secret_word :
@@ -84,6 +94,7 @@ def hangman(secret_word):
                 if prev_hint==False:
                     print("HINT : -{}-".format(hint(secret_word,letters_guessed)))
                     prev_hint=True
+                    print("")
                 else:
                     print("**** Hint already used!! ****")    
             else:
@@ -95,7 +106,11 @@ def hangman(secret_word):
                 print("")
                 is_word_guessed(secret_word, letters_guessed)
                 if(available_lives>7):
-                    print("****Game Over****")
+                    print("Original Word : "+ secret_word)
+                    print("")
+                    print("---------------------------")
+                    print("-------  GAME OVER  -------")
+                    print("---------------------------")
                     sys.exit()
                 print("")
         else:
